@@ -30,3 +30,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# Aux Directories
+/UI_DESIGN
