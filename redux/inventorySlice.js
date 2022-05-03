@@ -4,8 +4,8 @@ import Inventory from "../data/TableData";
 const inventorySlice = createSlice({
     name:'Inventory',
     initialState:{
-        category:Inventory[0].Category || '',
-        items:Inventory[0].Items || [],
+        categories:Inventory.map(category => category.Category) || '',
+        items:Inventory.map(category => category.Items),
         selected:0,
         total:Inventory[0].Items.length,
     },

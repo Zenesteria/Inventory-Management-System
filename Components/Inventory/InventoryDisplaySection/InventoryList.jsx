@@ -1,6 +1,5 @@
 // Modules/Data
 import React, { useMemo } from 'react'
-import { useState } from 'react'
 import { useTable } from 'react-table'
 import { useSelector } from 'react-redux'
 import Inventory from '../../../data/TableData'
@@ -10,8 +9,6 @@ import Inventory from '../../../data/TableData'
 import InventoryHeader from './InventoryHeader';
 import Actions from './Actions'
 
-// React Icons
-
 
 
 
@@ -20,11 +17,10 @@ import Actions from './Actions'
 
 export default function InventoryList() {
     // Redux State(s)
-    const currentCategory = useSelector(state => state.Inventory.category)
-    const [cat, setCat] = useState(currentCategory)
+    const inventoryData = useSelector(state => state.Inventory)
     
-    const displayedCategory = Inventory.filter(category => category.Category === cat)
-    const {Items:itemData} = displayedCategory[0]
+    const defaultCategory = inventoryData.categories
+    const itemData = inventoryData.items[0]
 
     const items = itemData.map((item, index) => {
         return {
@@ -77,7 +73,7 @@ export default function InventoryList() {
     
   return (
     <div className='flex flex-col w-full max-w-[1000px] h-full max-h-[700px] my-5 bg-white border-[1px] p-2'>
-        <InventoryHeader   currentCategory={currentCategory}  />
+        <InventoryHeader   currentCategory={defaultCategory}  />
         <div className="w-full overflow-x-auto">   
             <table {...getTableProps()} className='w-full min-w-[800px]'>
                 <thead>

@@ -1,3 +1,7 @@
+// Modules
+import { useSelector } from "react-redux";
+
+
 
 // Components
 import Slider from "react-slick";
@@ -6,7 +10,9 @@ import NextArrow from "./NavigationArrows/NextArrow";
 import PrevArrow from "./NavigationArrows/PrevArrow";
 
 
+
 export default function InventoryNav() {
+  const categories = useSelector(state => state.Inventory.categories)
     const settings = {
         dots:false,
         nextArrow:<NextArrow/>,
@@ -34,10 +40,11 @@ export default function InventoryNav() {
     <div className="relative flex items-center justify-center w-[70%] overflow-hidden h-[15%] mb-2 border-b-[1px] rounded-xl border-[#267c963d] shadow-[0_15px_25px_rgb(38,124,150,0.10)]">
            <div className="w-[80%] h-fit">
                 <Slider {...settings}>
-                    <ItemLink txt='Household'/>
-                    <ItemLink txt='Work'/>
-                    <ItemLink txt='Club'/>
-                    <ItemLink txt='Miscellaneous'/>
+                  {categories.map((category,index) => {
+                    return(
+                      <ItemLink key={index} txt={category}/>
+                    )
+                  })}
                 </Slider>
            </div>
     </div>

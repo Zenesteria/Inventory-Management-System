@@ -4,7 +4,6 @@ import { switchCategory } from "../../../redux/inventorySlice";
 
 const InventoryNavLinks = ({txt, total}) => {
     const dispatch = useDispatch()
-    const category = useSelector(state => state.Inventory.category)
   
     // Event Handlers
     const handleClick = () => { 
