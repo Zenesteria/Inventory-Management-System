@@ -1,8 +1,12 @@
-import Slider from "react-slick";
-import NextArrow from "./NextArrow";
-import PrevArrow from "./PrevArrow";
 
-export default function ItemsNav() {
+// Components
+import Slider from "react-slick";
+import ItemLink from "./InventoryNavLinks";
+import NextArrow from "./NavigationArrows/NextArrow";
+import PrevArrow from "./NavigationArrows/PrevArrow";
+
+
+export default function InventoryNav() {
     const settings = {
         dots:false,
         nextArrow:<NextArrow/>,
@@ -40,10 +44,3 @@ export default function ItemsNav() {
   )
 }
 
-const ItemLink = ({txt, total}) => {
-    return(
-        <div className="flex items-center justify-center mx-2 mt-2">
-            <h3 className="text-[0.9rem] cursor-pointer hover:scale-110 transition-all duration-300 text-blue-900">{txt} [{total > 0 ? total:'0'}]</h3>
-        </div>
-    )
-}

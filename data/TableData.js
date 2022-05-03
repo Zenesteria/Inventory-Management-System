@@ -1,4 +1,4 @@
-import Actions from "../Components/Items/Actions";
+
 
 
 const Inventory = [
@@ -6,54 +6,44 @@ const Inventory = [
         Category: 'Household',
         Items:[
             {
-                check:<input type='checkbox'/>,
                 id:1,
                 name:'Mouse3',
                 category:'Household',
                 loc:'Room3',
                 quantity:'10',
-                dateAdded:'19-02-2022',
-                actions:<Actions/>
+                dateAdded:'19-02-2022'
             },
             {
-                check:<input type='checkbox'/>,
                 id:2,
                 name:'Mouse3',
                 category:'Household',
                 loc:'Room3',
                 quantity:'10',
-                dateAdded:'19-02-2022',
-                actions:''
+                dateAdded:'19-02-2022'
             },
             {
-                check:<input type='checkbox'/>,
                 id:3,
                 name:'Mouse3',
                 category:'Household',
                 loc:'Room3',
                 quantity:'10',
-                dateAdded:'19-02-2022',
-                actions:''
+                dateAdded:'19-02-2022'
             },
             {
-                check:<input type='checkbox'/>,
                 id:4,
                 name:'Mouse3',
                 category:'Household',
                 loc:'Room3',
                 quantity:'10',
-                dateAdded:'19-02-2022',
-                actions:''
+                dateAdded:'19-02-2022'
             },
             {
-                check:<input type='checkbox'/>,
                 id:5,
                 name:'Mouse3',
                 category:'Household',
                 loc:'Room3',
                 quantity:'10',
-                dateAdded:'19-02-2022',
-                actions:''
+                dateAdded:'19-02-2022'
             },
         ]
     },
