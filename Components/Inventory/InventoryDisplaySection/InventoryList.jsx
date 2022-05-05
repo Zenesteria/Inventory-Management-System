@@ -9,6 +9,7 @@ import Inventory from '../../../data/TableData'
 import InventoryHeader from './InventoryHeader';
 import Actions from './Actions'
 import Pagination from './InventoryPagination';
+import Checked from './Checked';
 
 
 
@@ -25,7 +26,7 @@ export default function InventoryList() {
 
     const items = itemData.map((item, index) => {
         return {
-            check:<input type='checkbox'/>,
+            check:<Checked/>,
             id:item.id,
             name:item.name,
             category:item.category,
@@ -94,7 +95,7 @@ export default function InventoryList() {
                     {rows.map(row => {
                         prepareRow(row)
                         return(
-                            <tr key={''} {...row.getRowProps()}>
+                            <tr key={''} className='row' {...row.getRowProps()}>
                                 {row.cells.map(cell => {
                                     return(
                                         <td key={''} {...cell.getCellProps()}>

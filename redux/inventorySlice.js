@@ -19,11 +19,14 @@ const inventorySlice = createSlice({
     reducers: {
         switchCategory: (state, action) => {
             state.categories.activeCategory = action.payload
+        },
+        selectedItems: (state, action) => {
+            state.selected = action.payload
         }
     },
 });
 
 
 
-export const {switchCategory} = inventorySlice.actions;
+export const {switchCategory, selectedItems} = inventorySlice.actions;
 export default inventorySlice.reducer;
