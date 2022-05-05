@@ -10,6 +10,7 @@ import InventoryHeader from './InventoryHeader';
 import Actions from './Actions'
 import Pagination from './InventoryPagination';
 import Checked from './Checked';
+import SelectAll from './SelectAll';
 
 
 
@@ -42,7 +43,7 @@ export default function InventoryList() {
     const data = useMemo(() => items, [items])
     const columns = useMemo(() => [
         {
-            Header:' ',
+            Header:<SelectAll/>,
             accessor:'check'
         },
         {
@@ -110,7 +111,7 @@ export default function InventoryList() {
             </table>
             <Pagination/>
         </div> 
-        <h3>{inventoryData.selected > 0 ? `Selected ${inventoryData.selected}` : ''}</h3>
+        <h3>{inventoryData.selected.selectedItems > 0 ? `Selected ${inventoryData.selected.selectedItems}` : 'None selected'} &nbsp;</h3>
     </div>
   )
 }

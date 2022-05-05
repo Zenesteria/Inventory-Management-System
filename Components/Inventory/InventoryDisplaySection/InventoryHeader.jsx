@@ -6,7 +6,6 @@ import {AiFillPrinter,AiOutlineMore} from 'react-icons/ai'
 import {MdDeleteForever} from 'react-icons/md'
 
 export default function InventoryHeader({currentCategory}) {
-    console.log(currentCategory)
 
   return (
         <div className="flex items-center justify-between w-full h-[10%]">

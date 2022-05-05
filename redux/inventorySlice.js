@@ -14,19 +14,31 @@ const inventorySlice = createSlice({
             activeCategory:Inventory.map(category => Object.values(category)[0])[0],
         },
         items:Inventory.map(category => category),
-        selected:0
+        selected:{
+            selectedAll: false,
+            selectedItems:0
+        }
     },
     reducers: {
         switchCategory: (state, action) => {
             state.categories.activeCategory = action.payload
         },
-        selectedItems: (state, action) => {
-            state.selected = action.payload
+        selectItems: state => {
+            const checkboxes = document.querySelectorAll('.selected')
+            const sel = 0
+            let allSelected
+            checkboxes.forEach(checkbox => {
+                checkbox.checked && sel++
+            })
+            state.selected.selectedItems = sel
+        },
+        selectAll: (state, action) => {
+
         }
     },
 });
 
 
 
-export const {switchCategory, selectedItems} = inventorySlice.actions;
+export const {switchCategory, selectItems} = inventorySlice.actions;
 export default inventorySlice.reducer;
