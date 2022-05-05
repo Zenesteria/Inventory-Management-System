@@ -8,6 +8,7 @@ import Inventory from '../../../data/TableData'
 // Components
 import InventoryHeader from './InventoryHeader';
 import Actions from './Actions'
+import Pagination from './InventoryPagination';
 
 
 
@@ -18,9 +19,9 @@ import Actions from './Actions'
 export default function InventoryList() {
     // Redux State(s)
     const inventoryData = useSelector(state => state.Inventory)
-    
-    const defaultCategory = inventoryData.categories
-    const itemData = inventoryData.items[0]
+    const activeCategory = inventoryData.categories.activeCategory
+    const currentCategory = inventoryData.items.filter(category => category.Category === activeCategory)
+    const itemData = currentCategory[0].Items
 
     const items = itemData.map((item, index) => {
         return {
@@ -34,6 +35,7 @@ export default function InventoryList() {
             actions:<Actions index={index}/>
         }
     })
+    
 
     // Table Data
     const data = useMemo(() => items, [items])
@@ -73,8 +75,8 @@ export default function InventoryList() {
     
   return (
     <div className='flex flex-col w-full max-w-[1000px] h-full max-h-[700px] my-5 bg-white border-[1px] p-2'>
-        <InventoryHeader   currentCategory={defaultCategory}  />
-        <div className="w-full overflow-x-auto">   
+        <InventoryHeader currentCategory={currentCategory[0].Category}  />
+        <div className="w-full h-full overflow-x-auto">   
             <table {...getTableProps()} className='w-full min-w-[800px]'>
                 <thead>
                     {headerGroups.map(headerGroup => (
@@ -105,7 +107,9 @@ export default function InventoryList() {
                     })}
                 </tbody>
             </table>
+            <Pagination/>
         </div> 
+        <h3>{inventoryData.selected > 0 ? `Selected ${inventoryData.selected}` : ''}</h3>
     </div>
   )
 }

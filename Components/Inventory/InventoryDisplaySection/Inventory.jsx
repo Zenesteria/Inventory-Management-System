@@ -17,7 +17,6 @@ export default function Inventory() {
 
         <InventoryNav/>
         <InventoryList/>
-        <Pagination/>
     </div>
   )
 }
