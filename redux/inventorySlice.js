@@ -62,11 +62,14 @@ const inventorySlice = createSlice({
         delItem:(state, action) => {
             const [currenCategory] = state.items.inv.filter(category => category.Category === action.payload.category)
             currenCategory.Items.splice(action.payload.index, 1)
+        },
+        addItem: (state, action) => {
+
         }
     },
 });
 
 
 
-export const {switchCategory, selectItems, selectAll, delItem} = inventorySlice.actions;
+export const {switchCategory, selectItems, selectAll, delItem, addItem} = inventorySlice.actions;
 export default inventorySlice.reducer;

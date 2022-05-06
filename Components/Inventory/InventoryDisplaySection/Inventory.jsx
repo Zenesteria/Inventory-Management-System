@@ -6,6 +6,7 @@ import React from 'react'
 import InventoryList from './InventoryList'
 import InventoryNav from '../InventoryNav/InventoryNav'
 import Pagination from './InventoryPagination'
+import AddItemSection from './Actions/AddItem/AddItemSection'
 
 export default function Inventory() {
   return (
@@ -15,6 +16,7 @@ export default function Inventory() {
             <h1 className='text-white font-bold text-[2.5rem]'>My Inventory</h1>
         </div>
 
+        <AddItemSection/>
         <InventoryNav/>
         <InventoryList/>
     </div>
