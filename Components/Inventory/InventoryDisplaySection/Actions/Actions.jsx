@@ -5,7 +5,7 @@ import React from 'react'
 import {BsFillPencilFill} from 'react-icons/bs'
 import {AiFillDelete} from 'react-icons/ai'
 import { useDispatch, useSelector } from 'react-redux'
-import { delItem } from '../../../redux/inventorySlice'
+import { delItem } from '../../../../redux/inventorySlice'
 
 
 export default function Actions({index}) {

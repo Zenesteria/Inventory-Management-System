@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { selectItems } from '../../../redux/inventorySlice'
+import { selectItems } from '../../../../redux/inventorySlice'
 
 
 export default function Checked() {

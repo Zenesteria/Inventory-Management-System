@@ -7,10 +7,10 @@ import Inventory from '../../../data/TableData'
 
 // Components
 import InventoryHeader from './InventoryHeader';
-import Actions from './Actions'
+import Actions from './Actions/Actions'
 import Pagination from './InventoryPagination';
-import Checked from './Checked';
-import SelectAll from './SelectAll';
+import Checked from './Actions/Checked';
+import SelectAll from './Actions/SelectAll';
 
 
 

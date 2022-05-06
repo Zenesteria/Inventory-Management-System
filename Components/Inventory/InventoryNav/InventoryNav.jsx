@@ -12,7 +12,7 @@ import PrevArrow from "./NavigationArrows/PrevArrow";
 
 
 export default function InventoryNav() {
-  const categories = useSelector(state => state.Inventory.items.inv.map(category => category.Category))
+  const categories = useSelector(state => state.Inventory.items.inv)
     const settings = {
         dots:false,
         nextArrow:<NextArrow/>,
@@ -42,7 +42,7 @@ export default function InventoryNav() {
                 <Slider {...settings}>
                   {categories.map((category,index) => {
                     return(
-                      <ItemLink key={index} txt={category}/>
+                      <ItemLink key={index} txt={category.Category} total={category.Items.length}/>
                     )
                   })}
                 </Slider>

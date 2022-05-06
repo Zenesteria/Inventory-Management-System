@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectAll } from '../../../redux/inventorySlice'
+import { selectAll } from '../../../../redux/inventorySlice'
 
 export default function SelectAll() {
     const dispatch = useDispatch()
