@@ -26,19 +26,40 @@ const inventorySlice = createSlice({
         selectItems: state => {
             const checkboxes = document.querySelectorAll('.selected')
             const sel = 0
-            let allSelected
+            let allSelected = true
+            checkboxes.forEach(checkbox => {
+                if(!checkbox.checked){
+                    allSelected = false
+                }
+                checkbox.checked && sel++
+            })
+            state.selected.selectedItems = sel
+            state.selected.selectedAll = allSelected
+        },
+        selectAll: (state, action) => {
+            const checkboxes = document.querySelectorAll('.selected')
+            const selectAllCheckBox = document.getElementById('selectAll')
+            const sel = 0
+            checkboxes.forEach(checkbox => {
+                if(selectAllCheckBox.checked){
+                    checkbox.checked = true
+                    state.selected.selectedAll = true
+                }
+                else{
+                    checkbox.checked = false
+                    state.selected.selectedAll = false
+                }
+            })
             checkboxes.forEach(checkbox => {
                 checkbox.checked && sel++
             })
             state.selected.selectedItems = sel
-        },
-        selectAll: (state, action) => {
-
+            
         }
     },
 });
 
 
 
-export const {switchCategory, selectItems} = inventorySlice.actions;
+export const {switchCategory, selectItems, selectAll} = inventorySlice.actions;
 export default inventorySlice.reducer;
