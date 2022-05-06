@@ -34,7 +34,7 @@ export default function InventoryList() {
             loc:item.loc,
             quantity:item.quantity,
             dateAdded:item.dateAdded,
-            actions:<Actions index={index} category={item.category}/>
+            actions:<Actions index={index}/>
         }
     })
     
