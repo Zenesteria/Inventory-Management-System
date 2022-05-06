@@ -12,7 +12,7 @@ import PrevArrow from "./NavigationArrows/PrevArrow";
 
 
 export default function InventoryNav() {
-  const categories = useSelector(state => state.Inventory.items.map(category => category.Category))
+  const categories = useSelector(state => state.Inventory.items.inv.map(category => category.Category))
     const settings = {
         dots:false,
         nextArrow:<NextArrow/>,

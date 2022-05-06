@@ -22,7 +22,7 @@ export default function InventoryList() {
     // Redux State(s)
     const inventoryData = useSelector(state => state.Inventory)
     const activeCategory = inventoryData.categories.activeCategory
-    const currentCategory = inventoryData.items.filter(category => category.Category === activeCategory)
+    const currentCategory = inventoryData.items.inv.filter(category => category.Category === activeCategory)
     const itemData = currentCategory[0].Items
 
     const items = itemData.map((item, index) => {
@@ -34,7 +34,7 @@ export default function InventoryList() {
             loc:item.loc,
             quantity:item.quantity,
             dateAdded:item.dateAdded,
-            actions:<Actions index={index}/>
+            actions:<Actions index={index} category={item.category}/>
         }
     })
     

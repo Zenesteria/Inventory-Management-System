@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Inventory from "../data/TableData";
+const userInv = Inventory.map(category => category)
 
 const inventorySlice = createSlice({
     name:'Inventory',
@@ -13,7 +14,9 @@ const inventorySlice = createSlice({
         categories:{
             activeCategory:Inventory.map(category => Object.values(category)[0])[0],
         },
-        items:Inventory.map(category => category),
+        items:{
+            inv: [...userInv]
+        },
         selected:{
             selectedAll: false,
             selectedItems:0
@@ -55,11 +58,15 @@ const inventorySlice = createSlice({
             })
             state.selected.selectedItems = sel
             
+        },
+        delItem:(state, action) => {
+            const [currenCategory] = state.items.inv.filter(category => category.Category === action.payload.category)
+            currenCategory.Items.splice(action.payload.index, 1)
         }
     },
 });
 
 
 
-export const {switchCategory, selectItems, selectAll} = inventorySlice.actions;
+export const {switchCategory, selectItems, selectAll, delItem} = inventorySlice.actions;
 export default inventorySlice.reducer;
