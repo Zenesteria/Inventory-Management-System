@@ -15,7 +15,11 @@ const inventorySlice = createSlice({
             activeCategory:Inventory.map(category => Object.values(category)[0])[0],
         },
         items:{
-            inv: [...userInv]
+            inv: [...userInv],
+            edit: {
+                addItem: false,
+                delItem: false
+            }
         },
         selected:{
             selectedAll: false,
@@ -64,7 +68,7 @@ const inventorySlice = createSlice({
             currenCategory.Items.splice(action.payload.index, 1)
         },
         addItem: (state, action) => {
-
+            state.items.edit.addItem = true
         }
     },
 });
